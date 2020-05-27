@@ -21,7 +21,7 @@
   <!-- displaying the all tags -->
   <p class="tags">
     Tags:
-    {% for tag in post.tags.all %}
+    {% for tag in post.tags.all %}  <!--tags means tagable manager which create on models.py file -->
      <a href="{% url "blog:post_list_by_tag" tag.slug %}">
       {{ tag.name }}
      </a>
@@ -34,5 +34,6 @@
     </p>
     {{ post.body|markdown|truncatewords_html:30 }} <!--the truncatewords_html filter truncates a string after a certain number of words,avoiding unclosed HTML tags -->
   {% endfor %}
-  {% include "pagination.html" with page=posts %} <!--using page_obj for class based views(Listview)  -->
+  {% include "pagination.html" with page=posts %} <!--here pass posts as a page to pagination file, using page_obj if you using class based views(Listview)  -->
+<!--at the bottom add pagination html for shows page number -->
 {% endblock %}

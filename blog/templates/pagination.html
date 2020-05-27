@@ -1,9 +1,9 @@
 <div class="pagination">
   <span class="step-links">
-    {% if page.has_previous %}
+    {% if page.has_previous %} <!--here page means posts which is pass from list.html file,if the posts has previous post then shows the previous page -->
       <a href="?page={{ page.previous_page_number }}">Previous</a>
     {% endif %}
-    <span class="current">
+    <span class="current"> <!--use span class current for pagination -->
       Page {{ page.number }} of {{ page.paginator.num_pages }}.
     </span>
       {% if page.has_next %}
